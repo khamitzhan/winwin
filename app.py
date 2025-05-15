@@ -7,10 +7,11 @@ app = Flask(name)
 def index():
     return 'Win-Win Syndicate App Running!'
 
+# Новый маршрут для обработки вебхуков от Kick
 @app.route('/webhook', methods=['POST'])
 def webhook():
     data = request.json
-    print("Получен вебхук:", data)
+    print("Получен вебхук:", data)  # для логов
     return jsonify({"status": "received"}), 200
 
 if name == "main":
